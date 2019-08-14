@@ -1,0 +1,81 @@
+{
+	"properties": {
+		"displayName": "Enforce Tags Genpact",
+		"policyType": "Custom",
+		"mode": "All",
+		"description": "Enforce Tags Genpact",
+		"metadata": {
+			"createdBy": "17d75e26-a1e5-44e4-97ec-5bc962c0d343",
+			"createdOn": "2019-08-08T08:26:16.6683029Z",
+			"updatedBy": "17d75e26-a1e5-44e4-97ec-5bc962c0d343",
+			"updatedOn": "2019-08-09T06:05:03.3640469Z"
+		},
+		"parameters": {},
+		"policyRule": {
+			"if": {
+				"allOf": [{
+						"field": "type",
+						"equals": "Microsoft.Resources/subscriptions/resourceGroups"
+					},
+					{
+						"anyOf": [{
+								"field": "tags['Application Support']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Backup']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Business Vertical']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Instance Schedule']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Name']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Owner']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Owner Supervisor']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['PID']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Patch Group']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Project Name']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Role']",
+								"exists": "false"
+							},
+							{
+								"field": "tags['Stack']",
+								"exists": "false"
+							}
+						]
+					}
+				]
+			},
+			"then": {
+				"effect": "deny"
+			}
+		}
+	},
+	"id": "/subscriptions/2e636dce-89ae-453f-91fa-beadd0116b65/providers/Microsoft.Authorization/policyDefinitions/ad238068-8194-4669-b545-a50d1bb2e804",
+	"type": "Microsoft.Authorization/policyDefinitions",
+	"name": "ad238068-8194-4669-b545-a50d1bb2e804"
+}
